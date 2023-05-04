@@ -8,24 +8,24 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.papelaria.projeto.domain.Usuario;
-import br.com.papelaria.projeto.repository.UsuarioRepository;
+import br.com.papelaria.projeto.domain.Cliente;
+import br.com.papelaria.projeto.repository.ClienteRepository;
 
 @RestController
-public class UsuarioController {
+public class ClienteController {
 	//Auto instância da interface em tempo de execução
 	@Autowired
-	private UsuarioRepository ur;
+	private ClienteRepository cr;
 	
-	@GetMapping("/usuario/listar")
-	public List<Usuario> listar() {
-		return ur.findAll();
+	@GetMapping("/cliente/listar")
+	public List<Cliente> listar() {
+		return cr.findAll();
 	}
 	
-	@PostMapping("/usuario/cadastrar")
-	public String cadastrar(@RequestBody Usuario us) {
+	@PostMapping("/cliente/cadastrar")
+	public String cadastrar(@RequestBody Cliente cl) {
 		String msg = "";
-		ur.save(us);
+		cr.save(cl);
 		msg = "Cadastrado";
 		return msg;
 	}
